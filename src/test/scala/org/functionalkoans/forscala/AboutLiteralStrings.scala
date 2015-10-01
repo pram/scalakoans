@@ -9,20 +9,20 @@ class AboutLiteralStrings extends KoanSuite with ShouldMatchers {
     val a = 'a'
     val b = 'B'
 
-    a.toString should be(__)
-    b.toString should be(__)
+    a.toString should be("a")
+    b.toString should be("B")
   }
 
   koan("Character Literals can use hexadecimal Unicode") {
     val c = '\u0061' //unicode for a
 
-    c.toString should be(__)
+    c.toString should be("a")
   }
 
   koan("Character Literals can use octal as well") {
     val d = '\141' //octal for a
 
-    d.toString should be(__)
+    d.toString should be("a")
   }
 
   koan("Character Literals can use escape sequences") {
