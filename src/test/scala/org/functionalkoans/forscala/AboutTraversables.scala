@@ -166,87 +166,87 @@ class AboutTraversables extends KoanSuite with ShouldMatchers {
 
   koan( """nonEmpty is pretty self evident too""") {
     val map = Map("Phoenix" -> "Arizona", "Austin" -> "Texas")
-    map.nonEmpty should be(__)
+    map.nonEmpty should be(true)
 
     val set = Set()
-    set.nonEmpty should be(__)
+    set.nonEmpty should be(false)
   }
 
   koan( """size provides the size of the traversable""") {
     val map = Map("Phoenix" -> "Arizona", "Austin" -> "Texas")
-    map.size should be(__)
+    map.size should be(2)
   }
 
   koan( """hasDefiniteSize will return true if there is traversable that has a
           finite end, otherwise false""") {
     val map = Map("Phoenix" -> "Arizona", "Austin" -> "Texas")
-    map.hasDefiniteSize should be(__)
+    map.hasDefiniteSize should be(true)
 
     import Stream.cons
     val stream = cons(0, cons(1, Stream.empty))
-    stream.hasDefiniteSize should be(__)
+    stream.hasDefiniteSize should be(false)
   }
 
   koan( """head will return the first element of an ordered collection, or some random
           | element if order is not defined like in a Set or Map""") {
     val list = List(10, 19, 45, 1, 22)
-    list.head should be(__)
+    list.head should be(10)
   }
 
   koan( """headOption will return the first element as an Option of an order collection,
           | or some random element if order is not defined.  If a first element
           | is not available, then None is returned""") {
     val list = List(10, 19, 45, 1, 22)
-    list.headOption should be(Some(__))
+    list.headOption should be(Some(10))
 
     val list2 = List()
-    list2.headOption should be(__)
+    list2.headOption should be(None)
   }
 
   koan( """last will return the last element of an ordered collection, or some random
           | element if order is not defined like in a Set or Map""") {
     val list = List(10, 19, 45, 1, 22)
-    list.last should be(__)
+    list.last should be(22)
   }
 
   koan( """lastOption will return the first element as an Option of an order collection,
           | or some random element if order is not defined.  If a first element
           | is not available, then None is returned""") {
     val list = List(10, 19, 45, 1, 22)
-    list.lastOption should be(Some(__))
+    list.lastOption should be(Some(22))
 
     val list2 = List()
-    list2.lastOption should be(__)
+    list2.lastOption should be(None)
   }
 
   koan( """find will locate the first item that matches a predicate p as Some or None if
           | an element is not found""") {
     val list = List(10, 19, 45, 1, 22)
-    list.find(_ % 2 != 0) should be(Some(__))
+    list.find(_ % 2 != 0) should be(Some(19))
 
     val list2 = List(4, 8, 16)
-    list2.find(_ % 2 != 0) should be(__)
+    list2.find(_ % 2 != 0) should be(None)
   }
 
   koan( """tail will return the rest of the collection without the head""") {
     val list = List(10, 19, 45, 1, 22)
-    list.tail should be(List(__, __, __, __))
+    list.tail should be(List(19, 45, 1, 22))
   }
 
   koan( """init will return the rest of the collection without the last""") {
     val list = List(10, 19, 45, 1, 22)
-    list.init should be(List(__, __, __, __))
+    list.init should be(List(10, 19, 45, 1))
   }
 
   koan( """Given a `from` index, and a `to` index, slice will return the part of the
           |  collection including `from`, and excluding `to`""") {
     val list = List(10, 19, 45, 1, 22)
-    list.slice(1, 3) should be(List(__, __))
+    list.slice(1, 3) should be(List(19, 45))
   }
 
   koan( """Take will return the the first number of elements given.""") {
     val list = List(10, 19, 45, 1, 22)
-    list.take(3) should be(List(__, __, __))
+    list.take(3) should be(List(10, 19, 45))
   }
 
   koan( """Take is used often with Streams, and Streams after all are Traversable""") {
