@@ -74,28 +74,28 @@ class AboutTraversables extends KoanSuite with ShouldMatchers {
           | is like a void return type in Java, C++""") {
     val list = List(4, 6, 7, 8, 9, 13, 14)
     list.foreach(num => println(num * 4))
-    list should be(List(__, __, __, __, __, __, __))
+    list should be(List(4, 6, 7, 8, 9, 13, 14))
   }
 
   koan( """toArray will convert any Traversable to an Array, which is a special wrapper around a
           |  primitive Java array.""") {
     val set = Set(4, 6, 7, 8, 9, 13, 14)
     val result = set.toArray
-    result.isInstanceOf[Array[Int]] should be(__)
+    result.isInstanceOf[Array[Int]] should be(true)
   }
 
   koan( """toList will convert any Traversable to a List.""") {
     val set = Set(4, 6, 7, 8, 9, 13, 14)
     val result = set.toList
 
-    result.isInstanceOf[List[_]] should be(__)
+    result.isInstanceOf[List[_]] should be(true)
   }
 
   koan( """toList, as well as other conversion methods like toSet, toArray,
           |  will not convert if the collection type is the same.""") {
     val list = List(5, 6, 7, 8, 9)
     val result = list.toList
-    result eq list should be(__) //Reminder: eq tests for reference equality
+    result eq list should be(true) //Reminder: eq tests for reference equality
   }
 
   koan( """toIterable will convert any Traversable to an Iterable. This is a base
@@ -105,7 +105,7 @@ class AboutTraversables extends KoanSuite with ShouldMatchers {
 
     val set = Set(4, 6, 7, 8, 9, 13, 14)
     val result = set.toIterable
-    result.isInstanceOf[Iterable[_]] should be(__)
+    result.isInstanceOf[Iterable[_]] should be(true)
   }
 
   koan( """toSeq will convert any Traversable to a Seq which is an ordered Iterable
@@ -114,7 +114,7 @@ class AboutTraversables extends KoanSuite with ShouldMatchers {
           |  length of a sequence.""") {
     val set = Set(4, 6, 7, 8, 9, 13, 14)
     val result = set.toSeq
-    result.isInstanceOf[Seq[_]] should be(__)
+    result.isInstanceOf[Seq[_]] should be(true)
   }
 
   koan( """toIndexedSeq will convert any Traversable to an IndexedSeq which is
@@ -122,7 +122,7 @@ class AboutTraversables extends KoanSuite with ShouldMatchers {
           |  Vectors and Strings""") {
     val set = Set(4, 6, 7, 8, 9, 13, 14)
     val result = set.toIndexedSeq
-    result.isInstanceOf[IndexedSeq[_]] should be(__)
+    result.isInstanceOf[IndexedSeq[_]] should be(true)
   }
 
   koan( """toStream will convert any Traversable to a Stream which is
@@ -130,15 +130,15 @@ class AboutTraversables extends KoanSuite with ShouldMatchers {
           |  are needed.""") {
     val list = List(4, 6, 7, 8, 9, 13, 14)
     val result = list.toStream
-    result.isInstanceOf[Stream[_]] should be(__)
-    (result take 3) should be(List(__, __, __))
+    result.isInstanceOf[Stream[_]] should be(true)
+    (result take 3) should be(List(4, 6, 7))
   }
 
   koan( """toSet will convert any Traversable to a Set which is
           |  a collection of unordered, unique values""") {
     val list = List(4, 6, 7, 8, 9, 13, 14)
     val result = list.toSet
-    result.isInstanceOf[Set[_]] should be(__)
+    result.isInstanceOf[Set[_]] should be(true)
   }
 
   koan( """toMap will convert any Traversable to a Map. How it's
@@ -146,22 +146,22 @@ class AboutTraversables extends KoanSuite with ShouldMatchers {
           | it should be of parameterized type Tuple2.""") {
     val list = List("Phoenix" -> "Arizona", "Austin" -> "Texas")
     val result = list.toMap
-    result.isInstanceOf[Map[_, _]] should be(__)
+    result.isInstanceOf[Map[_, _]] should be(true)
   }
 
   koan( """toMap will convert a Set to a Map,
           | it should be of parameterized type Tuple2.""") {
     val set = Set("Phoenix" -> "Arizona", "Austin" -> "Texas")
     val result = set.toMap
-    result.isInstanceOf[Map[_, _]] should be(__)
+    result.isInstanceOf[Map[_, _]] should be(true)
   }
 
   koan( """isEmpty is pretty self evident""") {
     val map = Map("Phoenix" -> "Arizona", "Austin" -> "Texas")
-    map.isEmpty should be(__)
+    map.isEmpty should be(false)
 
     val set = Set()
-    set.isEmpty should be(__)
+    set.isEmpty should be(true)
   }
 
   koan( """nonEmpty is pretty self evident too""") {
