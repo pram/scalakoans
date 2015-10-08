@@ -386,20 +386,20 @@ class AboutTraversables extends KoanSuite with ShouldMatchers {
     val result = (0 /: list) {
       (`running total`, `next element`) => `running total` - `next element`
     }
-    result should be(__)
+    result should be(-15)
 
     val result2 = list.foldLeft(0) {
       (`running total`, `next element`) => `running total` - `next element`
     }
-    result2 should be(__)
+    result2 should be(-15)
 
     val result3 = (0 /: list)(_ - _) //Short hand
-    result3 should be(__)
+    result3 should be(-15)
 
     val result4 = list.foldLeft(0)(_ - _)
-    result4 should be(__)
+    result4 should be(-15)
 
-    (((((0 - 5) - 4) - 3) - 2) - 1) should be(__)
+    (((((0 - 5) - 4) - 3) - 2) - 1) should be(-15)
   }
 
   koan( """ `:\` or foldRight` will combine an operation starting with a seed and combining from the right.  Fold right
@@ -414,7 +414,7 @@ class AboutTraversables extends KoanSuite with ShouldMatchers {
     val result = (list :\ 0) {
       (`next element`, `running total`) => `next element` - `running total`
     }
-    result should be(__)
+    result should be(3)
 
     val result2 = (list :\ 0) {
       (`next element`, `running total`) => `next element` - `running total`
