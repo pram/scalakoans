@@ -252,14 +252,14 @@ class AboutTraversables extends KoanSuite with ShouldMatchers {
   koan( """Take is used often with Streams, and Streams after all are Traversable""") {
     def streamer(v: Int): Stream[Int] = cons(v, streamer(v + 1))
     val a = streamer(2)
-    (a take 3 toList) should be(List(__, __, __))
+    (a take 3 toList) should be(List(2, 3, 4))
   }
 
   koan( """Drop will take the rest of the Traversable except
           |  the number of elements given""") {
     def streamer(v: Int): Stream[Int] = cons(v, streamer(v + 1))
     val a = streamer(2)
-    ((a drop 6) take 3).toList should be(List(__, __, __))
+    ((a drop 6) take 3).toList should be(List(8, 9, 10))
   }
 
   koan( """takeWhile will continually accumulate elements until a predicate
