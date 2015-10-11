@@ -21,3 +21,5 @@ The working koans are
 at [Scala Koans](http://bitbucket.org/dickwall/scala-koans/wiki/Home) for more details and answers on scala-koans.  
 
 Online version also available at [Scala Exercises](http://scala-exercises.47deg.com/koans)
+
+Completed
